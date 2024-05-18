@@ -43,6 +43,12 @@ http://localhost:8080/draw
 http://localhost:8080/last-draw
 ```
 
+- Resetar a lista dos sorteados
+
+```text
+http://localhost:8080/reset
+```
+
 - Authors
 
 [**Diorgenes Morais**](https://github.com/diorgenesmorais)
