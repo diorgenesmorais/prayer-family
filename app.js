@@ -34,6 +34,23 @@ const writeEntries = (entries) => {
   });
 };
 
+function getCurrentDateFormatted() {
+    const date = new Date();
+
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    const year = date.getFullYear();
+
+    if (day < 10) {
+        day = '0' + day;
+    }
+    if (month < 10) {
+        month = '0' + month;
+    }
+
+    return `${day}/${month}/${year}`;
+}  
+
 app.get('/draw', async (req, res) => {
     try {
         const entries = await readEntries();
@@ -46,6 +63,7 @@ app.get('/draw', async (req, res) => {
         const randomIndex = Math.floor(Math.random() * inactiveEntries.length);
         const randomEntry = inactiveEntries[randomIndex];
         randomEntry.status = 'inactive';
+        randomEntry['drawDate'] = getCurrentDateFormatted();
     
         await writeEntries(entries);
     
