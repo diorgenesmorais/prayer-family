@@ -124,6 +124,20 @@ app.get('/last-draw', async (req, res) => {
     }
 });
 
+app.get('/reset', async (req, res) => {
+    try {
+        const entries = await readEntries();
+        entries
+            .filter(entry => entry.status === 'inactive')
+            .forEach(entry => entry.status = 'active');
+
+        await writeEntries(entries);
+        res.json({ message: 'Lista de nomes resetada!' });
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to process request', details: err.message });
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
