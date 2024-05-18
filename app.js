@@ -63,7 +63,7 @@ app.get('/draw', async (req, res) => {
         const randomIndex = Math.floor(Math.random() * inactiveEntries.length);
         const randomEntry = inactiveEntries[randomIndex];
         randomEntry.status = 'inactive';
-        randomEntry['drawDate'] = getCurrentDateFormatted();
+        randomEntry['drawDate'] = Date.now();
     
         await writeEntries(entries);
     
@@ -96,6 +96,18 @@ function getMostRecentDate(entries) {
     return mostRecentEntry;
 }
 
+function getMostRecentDateTime(entries) {
+    let mostRecentEntry = null;
+  
+    entries.forEach(entry => {
+      if (!mostRecentEntry || entry.drawDate > mostRecentEntry.drawDate) {
+        mostRecentEntry = entry;
+      }
+    });
+  
+    return mostRecentEntry;
+}
+
 app.get('/last-draw', async (req, res) => {
     try {
         const entries = await readEntries();
@@ -105,7 +117,7 @@ app.get('/last-draw', async (req, res) => {
             return res.status(404).json({ message: 'Ainda não tem sorteados' });
         }
 
-        const mostRecentDate = getMostRecentDate(inactiveEntries);
+        const mostRecentDate = getMostRecentDateTime(inactiveEntries);
         res.json(mostRecentDate);
     } catch (err) {
         res.status(500).json({ error: 'Failed to process request', details: err.message });
