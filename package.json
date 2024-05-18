@@ -4,5 +4,11 @@
   "description": "Sorteio de familia de oração",
   "main": "index.js",
   "author": "Diorgenes Morais",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "node app.js"
+  },  
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }
