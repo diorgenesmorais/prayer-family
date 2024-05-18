@@ -1,0 +1,8 @@
+{
+  "name": "prayer-family",
+  "version": "1.0.0",
+  "description": "Sorteio de familia de oração",
+  "main": "index.js",
+  "author": "Diorgenes Morais",
+  "license": "MIT"
+}
