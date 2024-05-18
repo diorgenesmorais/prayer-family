@@ -73,6 +73,45 @@ app.get('/draw', async (req, res) => {
       }
 });
 
+/**
+ * @param {Array} entries 
+ * @returns only the most current
+ */
+function getMostRecentDate(entries) {
+    function parseDate(dateStr) {
+      const [day, month, year] = dateStr.split('/').map(Number);
+      return new Date(year, month - 1, day);
+    }
+  
+    let mostRecentEntry = null;
+  
+    entries.forEach(entry => {
+      const currentEntryDate = parseDate(entry.drawDate);
+  
+      if (!mostRecentEntry || currentEntryDate > parseDate(mostRecentEntry.drawDate)) {
+        mostRecentEntry = entry;
+      }
+    });
+  
+    return mostRecentEntry;
+}
+
+app.get('/last-draw', async (req, res) => {
+    try {
+        const entries = await readEntries();
+        const inactiveEntries = entries.filter(entry => entry.status === 'inactive');
+
+        if (inactiveEntries.length === 0) {
+            return res.status(404).json({ message: 'Ainda não tem sorteados' });
+        }
+
+        const mostRecentDate = getMostRecentDate(inactiveEntries);
+        res.json(mostRecentDate);
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to process request', details: err.message });
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
