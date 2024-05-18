@@ -37,6 +37,12 @@ npm run start
 http://localhost:8080/draw
 ```
 
+- Para obter o nome do último sorteado
+
+```text
+http://localhost:8080/last-draw
+```
+
 - Authors
 
 [**Diorgenes Morais**](https://github.com/diorgenesmorais)
