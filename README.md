@@ -49,6 +49,26 @@ http://localhost:8080/last-draw
 http://localhost:8080/reset
 ```
 
+- Tornar o app executável no windows
+
+Instalar
+
+```bash
+npm install -g pkg
+```
+
+Empacotar a aplicação
+
+```bash
+pkg . --targets windows
+```
+
+Executar o executável
+
+```bash
+./nodejs-app-win.exe
+```
+
 - Authors
 
 [**Diorgenes Morais**](https://github.com/diorgenesmorais)

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Sorteio de familia de oração",
   "main": "index.js",
+  "bin": "app.js",
   "author": "Diorgenes Morais",
   "license": "MIT",
   "scripts": {
