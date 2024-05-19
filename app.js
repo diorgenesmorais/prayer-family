@@ -36,8 +36,8 @@ const writeEntries = (entries) => {
   });
 };
 
-function getCurrentDateFormatted() {
-    const date = new Date();
+function getDateFormatted(timestamp) {
+    const date = new Date(timestamp);
 
     let day = date.getDate();
     let month = date.getMonth() + 1;
@@ -120,7 +120,7 @@ app.get('/last-draw', async (req, res) => {
         }
 
         const mostRecentDate = getMostRecentDateTime(inactiveEntries);
-        const message = { message: `A última família sorteada foi: ${mostRecentDate.name}`};
+        const message = { message: `A última família sorteada ${getDateFormatted(mostRecentDate.drawDate)} foi: ${mostRecentDate.name}`};
         res.json(message);
     } catch (err) {
         res.status(500).json({ error: 'Failed to process request', details: err.message });
