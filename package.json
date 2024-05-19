@@ -11,5 +11,11 @@
   },  
   "dependencies": {
     "express": "^4.19.2"
+  },
+  "pkg": {
+    "scripts": "app.js",
+    "assets": ["client/build/**/*"],
+    "targets": [ "node16-win-x64" ],
+    "outputPath": "dist"
   }
 }
