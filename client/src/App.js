@@ -30,17 +30,15 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p className='chosen-one'>
-          {name}
-        </p>
-        <div className='message'>
-          <p>{message}</p>
-        </div>
         <div className='control-btn'>
           <button className="btn btn-draw" onClick={handleDraw}>Sorteio</button>
           <button className='btn btn-last-draw' onClick={() => handleControl('/last-draw')}>Último</button>
+          <button className='btn btn-reset' onClick={() => handleControl('/reset')}>Reset</button>
         </div>
-        <button className='btn btn-reset' onClick={() => handleControl('/reset')}>Reset</button>
+        <div>
+          <p className='chosen-one'>{name}</p>
+          <p className='message'>{message}</p>
+        </div>
       </header>
     </div>
   );
