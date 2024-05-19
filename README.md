@@ -31,6 +31,12 @@ yarn run start
 npm run start
 ```
 
+- Abra o browser na url
+
+```text
+http://localhost:8080/
+```
+
 - Para obter um nome sorteado, basta fazer uma requisição para a URL abaixo
 
 ```text
