@@ -7,6 +7,8 @@ const PORT = process.env.PORT || 8080;
 
 const filePath = path.join(__dirname, 'data', 'entries.json');
 
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+
 const readEntries = () => {
   return new Promise((resolve, reject) => {
     fs.readFile(filePath, 'utf8', (err, data) => {
@@ -118,7 +120,8 @@ app.get('/last-draw', async (req, res) => {
         }
 
         const mostRecentDate = getMostRecentDateTime(inactiveEntries);
-        res.json(mostRecentDate);
+        const message = { message: `A última família sorteada foi: ${mostRecentDate.name}`};
+        res.json(message);
     } catch (err) {
         res.status(500).json({ error: 'Failed to process request', details: err.message });
     }
@@ -136,6 +139,10 @@ app.get('/reset', async (req, res) => {
     } catch (err) {
         res.status(500).json({ error: 'Failed to process request', details: err.message });
     }
+});
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
 app.listen(PORT, () => {

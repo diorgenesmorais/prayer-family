@@ -1,0 +1,68 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.chosen-one {
+  font-size: 160px;
+}
+
+.btn {
+  width: 172px;
+  border: none;
+  background-color: white;
+  color: black;
+  padding: 14px 28px;
+  font-size: 32px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+/* Red */
+.btn-draw {
+  color: dodgerblue
+}
+
+.btn-draw:hover {
+  background: #2196F3;
+  color: white;
+}
+
+/* Green */
+.btn-last-draw {
+  color: green;
+}
+
+.btn-last-draw:hover {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Orange */
+.btn-reset {
+  position: fixed;
+  left: 90%;
+  top: 90%;
+  background: #f44336;
+  color: white;
+}
+
+.control-btn {
+  display: flex;
+  gap: 36px;
+}
+
+.message {
+  font-size: 48px;
+}
+
