@@ -7,7 +7,8 @@
   "author": "Diorgenes Morais",
   "license": "MIT",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "pkg": "pkg . --targets windows"
   },  
   "dependencies": {
     "express": "^4.19.2"
