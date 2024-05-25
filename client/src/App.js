@@ -36,10 +36,13 @@ function App() {
           <button className='btn btn-reset' onClick={() => handleControl('/reset')}>Reset</button>
         </div>
         <div>
-          <p className='chosen-one'>{name}</p>
+          <div className='name-effect'>
+            <p className='chosen-one'>{name}</p>
+          </div>
           <p className='message'>{message}</p>
         </div>
       </header>
+      <span className='made-by'>Made by Diorgenes Morais</span>
     </div>
   );
 }
