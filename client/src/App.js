@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     getDrawnStatus();
-  }, [name]);
+  }, [name, message]);
 
   const handleDraw = async () => {
     try {

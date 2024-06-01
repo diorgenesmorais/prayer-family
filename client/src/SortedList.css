@@ -5,11 +5,15 @@ ul {
 }
 
 .person-drawn {
+    width: 250px;
     color: white;
 }
 
+.drawn-title {
+    text-align: left;
+}
+
 .person {
-    width: 300px;
     display: flex;
     gap: 16px;
     text-align: left;
