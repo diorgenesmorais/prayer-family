@@ -7,16 +7,21 @@
   "author": "Diorgenes Morais",
   "license": "MIT",
   "scripts": {
-    "start": "node app.js",
+    "start": "node app.mjs",
     "pkg": "pkg . --targets windows"
-  },  
+  },
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "open": "^10.1.0"
   },
   "pkg": {
     "scripts": "app.js",
-    "assets": ["client/build/**/*"],
-    "targets": [ "node16-win-x64" ],
+    "assets": [
+      "client/build/**/*"
+    ],
+    "targets": [
+      "node16-win-x64"
+    ],
     "outputPath": "dist"
   }
 }
