@@ -75,7 +75,8 @@ function App() {
         }
         {showPopup &&
           <div className="popup">
-            <p>Confirma a exclusão do item?</p>
+            <p>Realmente deseja resetar o sorteio?</p>
+            <p>Isso será irreversível!</p>
             <button className='btn btn-reset' style={{"margin-right": "16px"}} onClick={handleConfirmDelete}>Confirmar</button>
             <button className='btn btn-last-draw' onClick={handleCancelDelete}>Cancelar</button>
           </div>
