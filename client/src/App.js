@@ -63,7 +63,7 @@ function App() {
         <div className='control-btn'>
           <button className="btn btn-draw" onClick={handleDraw}>Sorteio</button>
           <button className='btn btn-last-draw' onClick={() => handleControl('/last-draw')}>Último</button>
-          <button className='btn btn-reset' onClick={() => handleDeleteClick()}>Reset</button>
+          <button hidden={!drawn.length} className='btn btn-reset' onClick={() => handleDeleteClick()}>Reset</button>
         </div>
         {!showPopup &&
           <div>
