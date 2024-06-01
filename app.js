@@ -110,21 +110,40 @@ function getMostRecentDateTime(entries) {
     return mostRecentEntry;
 }
 
-app.get('/last-draw', async (req, res) => {
+app.get('/status', async (req, res) => {
     try {
         const entries = await readEntries();
-        const inactiveEntries = entries.filter(entry => entry.status === 'inactive');
+        const inactiveEntries = entries
+                                  .filter(entry => entry.status === 'inactive')
+                                  .sort((a, b) => b.drawDate - a.drawDate)
+                                  .map(drawn => {
+                                    return {
+                                      name: drawn.name,
+                                      drawnIn: getDateFormatted(drawn.drawDate)
+                                    }
+                                  });
 
-        if (inactiveEntries.length === 0) {
-            return res.status(404).json({ message: 'Ainda não tem sorteados' });
-        }
-
-        const mostRecentDate = getMostRecentDateTime(inactiveEntries);
-        const message = { message: `A última família sorteada ${getDateFormatted(mostRecentDate.drawDate)} foi: ${mostRecentDate.name}`};
-        res.json(message);
+        res.json(inactiveEntries);
     } catch (err) {
         res.status(500).json({ error: 'Failed to process request', details: err.message });
     }
+});
+
+app.get('/last-draw', async (req, res) => {
+  try {
+      const entries = await readEntries();
+      const inactiveEntries = entries.filter(entry => entry.status === 'inactive');
+
+      if (inactiveEntries.length === 0) {
+          return res.status(404).json({ message: 'Ainda não tem sorteados' });
+      }
+
+      const mostRecentDate = getMostRecentDateTime(inactiveEntries);
+      const message = { message: `A última família sorteada ${getDateFormatted(mostRecentDate.drawDate)} foi: ${mostRecentDate.name}`};
+      res.json(message);
+  } catch (err) {
+      res.status(500).json({ error: 'Failed to process request', details: err.message });
+  }
 });
 
 app.get('/reset', async (req, res) => {
