@@ -1,0 +1,16 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.person-drawn {
+    color: white;
+}
+
+.person {
+    width: 300px;
+    display: flex;
+    gap: 16px;
+    text-align: left;
+}

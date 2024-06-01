@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import SortedList from './SortedList';
 
 function App() {
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
+  const [drawn, setDrawn] = useState([]);
+
+  useEffect(() => {
+    getDrawnStatus();
+  }, [name]);
 
   const handleDraw = async () => {
     try {
@@ -27,6 +33,16 @@ function App() {
     }
   };
 
+  const getDrawnStatus = async () => {
+    try {
+      const response = await fetch('/status');
+      const data = await response.json();
+      setDrawn(data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -42,6 +58,9 @@ function App() {
           <p className='message'>{message}</p>
         </div>
       </header>
+      <div className='list-status'>
+        <SortedList data={drawn} />
+      </div>
       <span className='made-by'>Made by Diorgenes Morais</span>
     </div>
   );

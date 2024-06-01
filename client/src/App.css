@@ -81,3 +81,8 @@
   display: inline-block;
 }
 
+.list-status {
+  position: fixed;
+  right: 20px;
+  bottom: 40px;
+}
