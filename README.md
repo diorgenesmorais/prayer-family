@@ -17,7 +17,7 @@
 
 - Instale as dependência
 
-```bash
+```sh
 yarn
 # ou
 npm install
@@ -25,7 +25,7 @@ npm install
 
 - Inicie o app
 
-```bash
+```sh
 yarn run start
 # ou
 npm run start
@@ -59,20 +59,20 @@ http://localhost:8085/reset
 
 Instalar
 
-```bash
+```sh
 npm install -g pkg
 ```
 
-Empacotar a aplicação
+Empacotar a aplicação para Windows
 
-```bash
-pkg . --targets windows
+```sh
+npm run pkg-windows
 ```
 
 Executar o executável
 
-```bash
-./nodejs-app-win.exe
+```sh
+./prayer-family.exe
 ```
 
 - Authors
