@@ -34,25 +34,25 @@ npm run start
 - Abra o browser na url
 
 ```text
-http://localhost:8080/
+http://localhost:8085/
 ```
 
 - Para obter um nome sorteado, basta fazer uma requisição para a URL abaixo
 
 ```text
-http://localhost:8080/draw
+http://localhost:8085/draw
 ```
 
 - Para obter o nome do último sorteado
 
 ```text
-http://localhost:8080/last-draw
+http://localhost:8085/last-draw
 ```
 
 - Resetar a lista dos sorteados
 
 ```text
-http://localhost:8080/reset
+http://localhost:8085/reset
 ```
 
 - Tornar o app executável no windows
