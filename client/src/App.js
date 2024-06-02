@@ -16,6 +16,11 @@ function App() {
     try {
       const response = await fetch('/draw');
       const data = await response.json();
+      if (data.hasOwnProperty('message')) {
+        setName('');
+        setMessage(data.message);
+        return;
+      }
       setName(data.name);
       setMessage('');
     } catch (error) {

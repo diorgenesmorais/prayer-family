@@ -87,7 +87,11 @@
   bottom: 40px;
 }
 
-.drawn-result {
+.drawn-result, .popup {
   position: fixed;
   top: 10%;
+}
+
+.popup {
+  top: 25%;
 }
