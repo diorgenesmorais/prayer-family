@@ -66,12 +66,12 @@ function App() {
           <button hidden={!drawn.length} className='btn btn-reset' onClick={() => handleDeleteClick()}>Reset</button>
         </div>
         {!showPopup &&
-          <div>
-          <div className='name-effect'>
-            <p className='chosen-one'>{name}</p>
+          <div className='drawn-result'>
+            <div className='name-effect'>
+              <p className='chosen-one'>{name}</p>
+            </div>
+            <p className='message'>{message}</p>
           </div>
-          <p className='message'>{message}</p>
-        </div>
         }
         {showPopup &&
           <div className="popup">
