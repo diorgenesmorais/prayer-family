@@ -1,3 +1,7 @@
+p {
+  margin: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -89,7 +93,7 @@
 
 .drawn-result, .popup {
   position: fixed;
-  top: 10%;
+  top: 20%;
 }
 
 .popup {
