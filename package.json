@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node app.js",
-    "pkg-windows": "pkg . --targets windows",
+    "pkg-windows": "pkg . --targets node16-win-x64 --output dist/prayer-family",
     "pkg-linux": "pkg . --targets node16-linux-x64 --output dist/prayer-family"
   },
   "dependencies": {
