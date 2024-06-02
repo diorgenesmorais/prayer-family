@@ -9,6 +9,10 @@ function App() {
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
+    handleControl('/last-draw');
+  }, []);
+
+  useEffect(() => {
     getDrawnStatus();
   }, [name, message]);
 
